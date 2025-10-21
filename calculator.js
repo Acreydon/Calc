@@ -1,33 +1,86 @@
-let varnum1= 7;
-let varnum2 = 6;
-let operator = "subtract";
 //console.log(operate(operator,varnum1,varnum2));
-
+        let varnum1="";
+        let varnum2="" ;
+        let operator="";
+        let result =null;
 const displaynum = document.getElementById("display");
 const buttons = document.querySelectorAll(".btn");
 buttons.forEach(button =>{
     button.addEventListener("click",()=>{
         const value = button.textContent;
+        
         if (value ==="C"){
             displaynum.textContent ="";
+            varnum1="";
+            varnum2="";
+            operator="";
+            result =null;
         }
+        else if (value ==="="){
+            result= operate(operator,Number(varnum1),Number(varnum2));
+            displaynum.textContent =result;
+            varnum1=result;
+        varnum2 ="";}
         else if (value ==="+"){
-            displaynum.textContent =0;
+            if(operator !=""){
+            result= operate(operator,Number(varnum1),Number(varnum2));
+            operator="+";
+            displaynum.textContent =result;
+            varnum1=result;
+            }
+            else{
+                operator="+";
+                displaynum.textContent +=value;
+            }
         }
         else if (value ==="-"){
-            displaynum.textContent =0;
+            if(operator !=""){
+            result= operate(operator,Number(varnum1),Number(varnum2));
+            operator="-";
+            displaynum.textContent =result;
+            varnum1=result;
+            }
+            else{
+                operator="-"
+                displaynum.textContent +=value;
+            }
         }
         else if (value ==="/"){
-            displaynum.textContent =0;
+            if(operator !=""){
+            result= operate(operator,Number(varnum1),Number(varnum2));
+            operator="/";
+            displaynum.textContent =result;
+            varnum1=result;
+            }
+            else{
+                operator="/"
+                displaynum.textContent +=value;
+            }
         }
         else if (value ==="*"){
-            displaynum.textContent =0;
-        }else if (value ==="="){
-            displaynum.textContent =0;
-        }else {
+            if(operator !=""){
+            result= operate(operator,Number(varnum1),Number(varnum2));
+            operator="*";
+            displaynum.textContent =result;
+            varnum1=result;
+            }
+            else{
+                operator="*";
+                displaynum.textContent +=value;
+            }
+        }
+        else {
+            if(operator===""){
+                varnum1 +=value;
+            }
+            else{
+                varnum2 +=value;
+            }
             displaynum.textContent +=value;
         }
-        console.log(button.textContent)
+        console.log(operator)
+        console.log(varnum1)
+        console.log(varnum2)
 }
 )
 } 
@@ -38,16 +91,16 @@ buttons.forEach(button =>{
 function operate(operator,num1,num2){
     let result;
 switch(operator){
-    case "add":
+    case "+":
         result = add(num1,num2);
         break;
-    case "subtract":
+    case "-":
         result = subtract(num1,num2);
         break;
-    case "multiply":
+    case "*":
         result = multiply(num1,num2);
         break;
-    case "divide":
+    case "/":
         result = divide(num1,num2);
         break;
 };
