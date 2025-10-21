@@ -1,7 +1,39 @@
 let varnum1= 7;
 let varnum2 = 6;
 let operator = "subtract";
-console.log(operate(operator,varnum1,varnum2));
+//console.log(operate(operator,varnum1,varnum2));
+
+const displaynum = document.getElementById("display");
+const buttons = document.querySelectorAll(".btn");
+buttons.forEach(button =>{
+    button.addEventListener("click",()=>{
+        const value = button.textContent;
+        if (value ==="C"){
+            displaynum.textContent ="";
+        }
+        else if (value ==="+"){
+            displaynum.textContent =0;
+        }
+        else if (value ==="-"){
+            displaynum.textContent =0;
+        }
+        else if (value ==="/"){
+            displaynum.textContent =0;
+        }
+        else if (value ==="*"){
+            displaynum.textContent =0;
+        }else if (value ==="="){
+            displaynum.textContent =0;
+        }else {
+            displaynum.textContent +=value;
+        }
+        console.log(button.textContent)
+}
+)
+} 
+)
+
+
 
 function operate(operator,num1,num2){
     let result;
