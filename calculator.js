@@ -1,4 +1,3 @@
-//console.log(operate(operator,varnum1,varnum2));
         let varnum1="";
         let varnum2="" ;
         let operator="";
@@ -26,7 +25,9 @@ buttons.forEach(button =>{
             result= operate(operator,Number(varnum1),Number(varnum2));
             operator="+";
             displaynum.textContent =result;
+              displaynum.textContent +=value;
             varnum1=result;
+              varnum2="";
             }
             else{
                 operator="+";
@@ -38,7 +39,9 @@ buttons.forEach(button =>{
             result= operate(operator,Number(varnum1),Number(varnum2));
             operator="-";
             displaynum.textContent =result;
+              displaynum.textContent +=value;
             varnum1=result;
+              varnum2="";
             }
             else{
                 operator="-"
@@ -50,7 +53,9 @@ buttons.forEach(button =>{
             result= operate(operator,Number(varnum1),Number(varnum2));
             operator="/";
             displaynum.textContent =result;
+              displaynum.textContent +=value
             varnum1=result;
+              varnum2="";
             }
             else{
                 operator="/"
@@ -62,7 +67,9 @@ buttons.forEach(button =>{
             result= operate(operator,Number(varnum1),Number(varnum2));
             operator="*";
             displaynum.textContent =result;
+              displaynum.textContent +=value;
             varnum1=result;
+              varnum2="";
             }
             else{
                 operator="*";
@@ -85,9 +92,6 @@ buttons.forEach(button =>{
 )
 } 
 )
-
-
-
 function operate(operator,num1,num2){
     let result;
 switch(operator){
@@ -118,5 +122,6 @@ function multiply(num1,num2){
     return num1*num2
 }
 function divide(num1,num2){
+    if (num2 === 0) return "Error";
     return num1/num2
 }
